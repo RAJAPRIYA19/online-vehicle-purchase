@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Online vehicle purchase system - browse, select, and buy your dream car">
+    <title>Online Vehicle Purchase System</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        :root {
+            --primary-color: #2980b9;
+            --secondary-color: #2c3e50;
+            --background-color: #f5f7fa;
+            --card-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            --hover-transition: all 0.3s ease;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: var(--background-color);
+            margin: 0;
+            padding: 0;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+        
+        h1 {
+            text-align: center;
+            color: var(--secondary-color);
+            margin-bottom: 1rem;
+            font-size: 2.2rem;
+        }
+        
+        .subtitle {
+            text-align: center;
+            color: #666;
+            margin-bottom: 2rem;
+            font-size: 1.1rem;
+        }
+        
+        .nav-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 25px;
+            margin-top: 30px;
+        }
+        
+        .nav-item {
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: var(--card-shadow);
+            overflow: hidden;
+            transition: var(--hover-transition);
+        }
+        
+        .nav-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
+        }
+        
+        .nav-item img {
+            width: 100%;
+            height: 160px;
+            object-fit: cover;
+            border-bottom: 1px solid #eee;
+        }
+        
+        .nav-item a {
+            display: block;
+            padding: 18px 15px;
+            text-align: center;
+            font-weight: 600;
+            color: var(--secondary-color);
+            text-decoration: none;
+            font-size: 1.1em;
+            transition: var(--hover-transition);
+        }
+        
+        .nav-item a:hover {
+            color: var(--primary-color);
+        }
+        
+        .nav-item a:focus {
+            outline: 2px solid var(--primary-color);
+            outline-offset: 2px;
+        }
+        
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
+            .container {
+                padding: 1rem;
+            }
+            
+            h1 {
+                font-size: 1.8rem;
+            }
+            
+            .nav-grid {
+                gap: 15px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1><span aria-hidden="true">🚗</span> Online Vehicle Purchase System</h1>
+            <p class="subtitle">Choose a section to get started on your vehicle purchase journey</p>
+        </header>
+
+        <main>
+            <div class="nav-grid">
+                <article class="nav-item">
+                    <img src="https://images.unsplash.com/photo-1489824904134-891ab64532f1?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80" alt="Car showroom">
+                    <a href="catalog.html">Browse Vehicle Catalog</a>
+                </article>
+                
+                <article class="nav-item">
+                    <img src="https://images.pexels.com/photos/4480537/pexels-photo-4480537.jpeg" alt="Customer choosing car">
+                    <a href="select.html">Select a Vehicle</a>
+                </article>
+                
+                <article class="nav-item">
+                    <img src="cart.png" alt="Car keys in shopping cart">
+                    <a href="cart.html">View Cart</a>
+                </article>
+                
+                <article class="nav-item">
+                    <img src="https://images.pexels.com/photos/4386158/pexels-photo-4386158.jpeg" alt="Payment">
+                    <a href="Payment.html">Payment</a>
+                </article>
+                
+                <article class="nav-item">
+                    <img src="https://images.pexels.com/photos/1181396/pexels-photo-1181396.jpeg" alt="Feedback">
+                    <a href="feedback.html">Give Feedback</a>
+                </article>
+            </div>
+        </main>
+    </div>
+</body>
+</html>

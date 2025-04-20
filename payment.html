@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Payment</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Payment Details</h1>
+        <form action="feedback.html" method="get">
+            <label for="name">Name:</label>
+            <input type="text" id="name" required>
+
+            <label for="card">Card Number:</label>
+            <input type="text" id="card" maxlength="16" required>
+
+            <label for="cvv">CVV:</label>
+            <input type="password" id="cvv" maxlength="3" required>
+
+            <input type="submit" value="Pay Now">
+        </form>
+        <div class="center">
+            <a href="cart.html">← Back to Cart</a>
+        </div>
+    </div>
+</body>
+</html>

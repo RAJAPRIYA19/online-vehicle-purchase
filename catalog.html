@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Vehicle Catalog</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Available Vehicles</h1>
+        <div id="catalog"></div>
+        <div class="center">
+            <a href="index.html">← Back to Home</a>
+        </div>
+    </div>
+
+    <script>
+        fetch('catalog.xml')
+            .then(res => res.text())
+            .then(data => {
+                console.log('Fetched XML:', data); // Log the fetched XML content
+                const parser = new DOMParser();
+                const xml = parser.parseFromString(data, 'application/xml');
+
+                // Check for parsing errors
+                if (xml.querySelector('parsererror')) {
+                    console.error('Error parsing XML:', xml.querySelector('parsererror').textContent);
+                    document.getElementById('catalog').innerHTML = '<p>Failed to load catalog. Invalid XML format.</p>';
+                    return;
+                }
+
+                const vehicles = xml.getElementsByTagName('vehicle');
+                console.log('Number of vehicles:', vehicles.length); // Log the number of vehicles
+                let html = '<ul>';
+
+                Array.from(vehicles).forEach(vehicle => {
+                    try {
+                        const id = vehicle.getAttribute('id');
+                        const name = vehicle.getElementsByTagName('name')[0]?.textContent || 'Unknown';
+                        const type = vehicle.getElementsByTagName('type')[0]?.textContent || 'Unknown';
+                        const price = vehicle.getElementsByTagName('price')[0]?.textContent || 'Unknown';
+                        const fuel = vehicle.getElementsByTagName('fuel')[0]?.textContent || 'Unknown';
+
+                        html += `
+                            <li>
+                                <strong>${name}</strong> (${type})<br>
+                                Fuel: ${fuel}<br>
+                                Price: ₹${price}<br>
+                                <a href="select.html?model=${encodeURIComponent(name)}">Select</a>
+                            </li>`;
+                    } catch (err) {
+                        console.error('Error processing vehicle:', err);
+                    }
+                });
+
+                html += '</ul>';
+                document.getElementById('catalog').innerHTML = html;
+            })
+            .catch(err => {
+                console.error('Error fetching or parsing catalog.xml:', err);
+                document.getElementById('catalog').innerHTML = '<p>Failed to load catalog. Please try again later.</p>';
+            });
+    </script>
+</body>
+</html>

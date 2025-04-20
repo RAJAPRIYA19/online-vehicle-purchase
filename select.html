@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Select Vehicle</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Select a Vehicle</h1>
+        <form action="cart.html" method="get">
+            <label for="model">Select Vehicle Model:</label>
+            <select name="model" id="model" required>
+                <!-- Options will be dynamically populated -->
+            </select>
+            <input type="submit" value="Add to Cart">
+        </form>
+        <div id="payment-section" style="display: none; margin-top: 20px;">
+            <a href="payment.html" class="button">Proceed to Payment</a>
+        </div>
+        <div class="center">
+            <a href="catalog.html">← Back to Catalog</a>
+        </div>
+    </div>
+
+    <script>
+        // Fetch the catalog.xml file and populate the dropdown
+        fetch('catalog.xml')
+            .then(res => res.text())
+            .then(data => {
+                const parser = new DOMParser();
+                const xml = parser.parseFromString(data, 'application/xml');
+
+                // Check for parsing errors
+                if (xml.querySelector('parsererror')) {
+                    console.error('Error parsing XML:', xml.querySelector('parsererror').textContent);
+                    document.getElementById('model').innerHTML = '<option value="">Error loading vehicles</option>';
+                    return;
+                }
+
+                const vehicles = xml.getElementsByTagName('vehicle');
+                const select = document.getElementById('model');
+                Array.from(vehicles).forEach(vehicle => {
+                    const name = vehicle.getElementsByTagName('name')[0]?.textContent || 'Unknown';
+                    const option = document.createElement('option');
+                    option.value = name;
+                    option.textContent = name;
+                    select.appendChild(option);
+                });
+
+                // Show the "Proceed to Payment" button when a vehicle is selected
+                select.addEventListener('change', () => {
+                    const paymentSection = document.getElementById('payment-section');
+                    if (select.value) {
+                        paymentSection.style.display = 'block';
+                    } else {
+                        paymentSection.style.display = 'none';
+                    }
+                });
+            })
+            .catch(err => {
+                console.error('Error fetching catalog.xml:', err);
+                document.getElementById('model').innerHTML = '<option value="">Error loading vehicles</option>';
+            });
+    </script>
+</body>
+</html>

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Cart</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Your Cart</h1>
+        <div id="cart">
+            <!-- Selected vehicle will be displayed here -->
+        </div>
+        <div class="center">
+            <a href="select.html">← Back to Vehicle Selection</a>
+        </div>
+    </div>
+
+    <script>
+        // Get the query parameter from the URL
+        const params = new URLSearchParams(window.location.search);
+        const model = params.get('model');
+
+        // Display the selected vehicle in the cart
+        const cartDiv = document.getElementById('cart');
+        if (model) {
+            cartDiv.innerHTML = `<p>You have selected: <strong>${model}</strong></p>`;
+        } else {
+            cartDiv.innerHTML = '<p>Your cart is empty. Please select a vehicle.</p>';
+        }
+    </script>
+</body>
+</html>

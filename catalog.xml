@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<vehicles>
+    <vehicle id="V101">
+        <name>Honda City</name>
+        <type>Sedan</type>
+        <price>1200000</price>
+        <fuel>Petrol</fuel>
+    </vehicle>
+    <vehicle id="V102">
+        <name>Hyundai Creta</name>
+        <type>SUV</type>
+        <price>1500000</price>
+        <fuel>Diesel</fuel>
+    </vehicle>
+    <vehicle id="V103">
+        <name>Tesla Model 3</name>
+        <type>Electric</type>
+        <price>4500000</price>
+        <fuel>Electric</fuel>
+    </vehicle>
+    <vehicle id="V104">
+        <name>Maruti Swift</name>
+        <type>Hatchback</type>
+        <price>800000</price>
+        <fuel>Petrol</fuel>
+    </vehicle>
+    <vehicle id="V105">
+        <name>Ford Endeavour</name>
+        <type>SUV</type>
+        <price>3300000</price>
+        <fuel>Diesel</fuel>
+    </vehicle>
+    <vehicle id="V106">
+        <name>Mahindra Thar</name>
+        <type>Off-Road</type>
+        <price>1600000</price>
+        <fuel>Diesel</fuel>
+    </vehicle>
+    <vehicle id="V107">
+        <name>BMW X5</name>
+        <type>Luxury SUV</type>
+        <price>7500000</price>
+        <fuel>Petrol</fuel>
+    </vehicle>
+    <vehicle id="V108">
+        <name>Kia Seltos</name>
+        <type>SUV</type>
+        <price>1400000</price>
+        <fuel>Petrol</fuel>
+    </vehicle>
+    <vehicle id="V109">
+        <name>MG Hector</name>
+        <type>SUV</type>
+        <price>1800000</price>
+        <fuel>Diesel</fuel>
+    </vehicle>
+    <vehicle id="V110">
+        <name>Audi A6</name>
+        <type>Luxury Sedan</type>
+        <price>6000000</price>
+        <fuel>Petrol</fuel>
+    </vehicle>
+</vehicles>
